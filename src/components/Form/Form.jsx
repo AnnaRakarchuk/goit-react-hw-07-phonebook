@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import css from './Form.module.css';
-import { addContact } from 'redux/contactsSlice';
+import { addContact } from 'redux/operations';
 import { getContacts } from 'redux/selectors';
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -37,7 +37,7 @@ const onSubmitBtn = e => {
 
     return;
   } else {
-    dispatch(addContact(name, number));
+    dispatch(addContact({name, number}));
   }
 
   setName('');
